@@ -1,0 +1,30 @@
+<div class="buscar-filme">
+  <form [formGroup]="form">
+    <h2> Filme individual </h2>
+    <input formControlName="titulo" placeholder="Digite o nome do filme">
+    <div class="botoes">
+      <button type="button" (click)="buscarFilme()" [disabled]="form.invalid">Procurar</button>
+      <button type="button" (click)="limparBusca()">Limpar</button>
+    </div>
+  </form>
+
+  @if(erro){
+    <div class="erro">
+      <p>Filme não encontrado. </p>
+    </div>
+  }
+
+  @if(isLoading){
+    <div class="loading">
+      <p>Buscando...</p>
+    </div>
+  }
+
+  @if(filme){
+    <div class="resultado-filme">
+      <p>{{filme.Title}}</p>
+      <img [src]="filme.Poster">
+    </div>
+  }
+
+</div>

@@ -1,0 +1,33 @@
+<div class="buscar-lista-filmes">
+  <form [formGroup]="form">
+    <h2> Lista de filmes </h2>
+    <input formControlName="titulo" placeholder="Digite o nome do filme">
+    <div class="botoes">
+      <button type="button" (click)="buscarListaFilmes()" [disabled]="form.invalid">Procurar</button>
+      <button type="button" (click)="limparBusca()">Limpar</button>
+    </div>
+  </form>
+
+  @if(filmes.length > 0){
+    <div class="lista-filmes">
+      @for(f of filmes; track f){
+        <div class="card-filme">
+          <p>{{f.Title}}</p>
+          <img [src]="f.Poster">
+        </div>
+      }
+    </div>
+  }
+
+  @if(isLoading){
+    <div class="loading">
+      <p>Buscando...</p>
+    </div>
+  }
+
+  @if(erro){
+    <div class="erro">
+      <p> Filme não encontrado. </p>
+    </div>
+  }
+</div>
