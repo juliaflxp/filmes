@@ -1,27 +1,48 @@
 nav {
-  background-color: #111;
+  background: linear-gradient(90deg, #111, #222, #111);
   color: #fff;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 3rem;
   padding: 1rem 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
-  color: #fff;
+  color: #f1f1f1;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #facc15;
+  transition: width 0.3s ease;
 }
 
 nav a:hover {
   color: #facc15;
 }
 
+nav a:hover::after {
+  width: 100%;
+}
+
 nav a.active {
   color: #facc15;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 main {
